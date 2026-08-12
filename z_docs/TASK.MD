@@ -20,10 +20,10 @@
 
 * [ ] Create Laravel 13 project
 * [ ] Verify PHP version is 8.4+
-* [ ] Configure application name as LibraLite
-* [ ] Configure application URL
-* [ ] Configure application timezone
-* [ ] Configure locale where appropriate
+* [x] Configure application name as LibraLite
+* [x] Configure application URL
+* [x] Configure application timezone
+* [x] Configure locale where appropriate
 * [ ] Initialize Git repository
 
 ## 1.2 Environment Configuration
@@ -37,16 +37,16 @@
 
 ## 1.3 Install Dependencies
 
-* [ ] Install Laravel Breeze
-* [ ] Install Spatie Laravel Permission
-* [ ] Install Spatie Laravel Media Library
-* [ ] Install Midtrans PHP SDK
-* [ ] Install Laravel DomPDF
-* [ ] Install Laravel Excel
-* [ ] Install Spatie Laravel Activitylog
-* [ ] Install PHP Flasher Notyf
-* [ ] Install remaining approved dependencies
-* [ ] Verify all dependencies are compatible with Laravel 13
+* [x] Install Laravel Breeze
+* [x] Install Spatie Laravel Permission
+* [x] Install Spatie Laravel Media Library
+* [x] Install Midtrans PHP SDK
+* [x] Install Laravel DomPDF
+* [x] Install Laravel Excel
+* [x] Install Spatie Laravel Activitylog
+* [x] Install PHP Flasher Notyf
+* [x] Install remaining approved dependencies
+* [x] Verify all dependencies are compatible with Laravel 13
 
 ## 1.4 Basic Application Verification
 
