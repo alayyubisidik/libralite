@@ -35,4 +35,8 @@ return [
         ],
     ],
 
+    'admin_setup' => [
+        'token' => env('ADMIN_SETUP_TOKEN'),
+    ],
+
 ];

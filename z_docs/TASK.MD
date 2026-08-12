@@ -62,53 +62,53 @@
 
 ## 2.1 Laravel Breeze
 
-* [ ] Configure Laravel Breeze
+* [x] Configure Laravel Breeze
 * [ ] Verify login
 * [ ] Verify logout
 * [ ] Verify forgot password
 * [ ] Verify reset password
 * [ ] Verify change password
-* [ ] Disable public registration
-* [ ] Remove/hide public registration routes and UI
+* [x] Disable public registration
+* [x] Remove/hide public registration routes and UI
 
 ## 2.2 Roles & Permissions
 
-* [ ] Configure Spatie Laravel Permission
-* [ ] Create Admin role
-* [ ] Create Member role
-* [ ] Define application permissions
-* [ ] Assign appropriate permissions to Admin
-* [ ] Assign appropriate permissions to Member
+* [x] Configure Spatie Laravel Permission
+* [x] Create Admin role
+* [x] Create Member role
+* [x] Define application permissions
+* [x] Assign appropriate permissions to Admin
+* [x] Assign appropriate permissions to Member
 * [ ] Configure authorization middleware/policies where required
 
 ## 2.3 Admin Setup
 
 The application must provide a secure initial admin setup mechanism.
 
-* [ ] Define admin setup token in `.env`
-* [ ] Add admin setup token configuration
-* [ ] Create secure admin setup mechanism
-* [ ] Create initial admin user through setup process
-* [ ] Assign Admin role automatically
-* [ ] Prevent unauthorized users from creating an admin
-* [ ] Prevent unnecessary repeated admin setup
-* [ ] Validate setup token securely
-* [ ] Ensure setup token is never exposed in the UI
-* [ ] Ensure setup token is never committed to Git
+* [x] Define admin setup token in `.env`
+* [x] Add admin setup token configuration
+* [x] Create secure admin setup mechanism
+* [x] Create initial admin user through setup process
+* [x] Assign Admin role automatically
+* [x] Prevent unauthorized users from creating an admin
+* [x] Prevent unnecessary repeated admin setup
+* [x] Validate setup token securely
+* [x] Ensure setup token is never exposed in the UI
+* [x] Ensure setup token is never committed to Git
 
 ## 2.4 Authentication & Authorization Testing
 
-* [ ] Test successful login
-* [ ] Test invalid credentials
-* [ ] Test logout
-* [ ] Test password reset
+* [x] Test successful login
+* [x] Test invalid credentials
+* [x] Test logout
+* [x] Test password reset
 * [ ] Test unauthorized page access
 * [ ] Test Admin permissions
 * [ ] Test Member permissions
-* [ ] Test disabled public registration
-* [ ] Test admin setup with valid token
-* [ ] Test admin setup with invalid token
-* [ ] Test repeated/unauthorized admin setup
+* [x] Test disabled public registration
+* [x] Test admin setup with valid token
+* [x] Test admin setup with invalid token
+* [x] Test repeated/unauthorized admin setup
 
 ---
 
@@ -139,29 +139,29 @@ The application must provide a secure initial admin setup mechanism.
 
 ## 3.3 Models & Relationships
 
-* [ ] Create Member model
-* [ ] Create Category model
-* [ ] Create Book model
-* [ ] Create Attendance model
-* [ ] Create Borrowing model
-* [ ] Create Fine model
-* [ ] Create Payment model
-* [ ] Define model relationships
-* [ ] Define appropriate casts
-* [ ] Define appropriate scopes
-* [ ] Configure media relationships where required
+* [x] Create Member model
+* [x] Create Category model
+* [x] Create Book model
+* [x] Create Attendance model
+* [x] Create Borrowing model
+* [x] Create Fine model
+* [x] Create Payment model
+* [x] Define model relationships
+* [x] Define appropriate casts
+* [x] Define appropriate scopes
+* [x] Configure media relationships where required
 
 ## 3.4 Factories & Seeders
 
-* [ ] Create Member factory
-* [ ] Create Category factory
-* [ ] Create Book factory
-* [ ] Create Attendance factory
-* [ ] Create Borrowing factory where appropriate
-* [ ] Create required test data factories
-* [ ] Create role/permission seeder
-* [ ] Create development data seeder
-* [ ] Verify seeders work from a fresh database
+* [x] Create Member factory
+* [x] Create Category factory
+* [x] Create Book factory
+* [x] Create Attendance factory
+* [x] Create Borrowing factory where appropriate
+* [x] Create required test data factories
+* [x] Create role/permission seeder
+* [x] Create development data seeder
+* [x] Verify seeders work from a fresh database
 
 ---
 
@@ -239,7 +239,7 @@ Admin must be able to help members who forget their Member Code or login credent
 * [ ] Create category validation
 * [ ] Create category edit
 * [ ] Create category deletion
-* [ ] Add slug generation
+* [x] Add slug generation (cviebrock/eloquent-sluggable on Category)
 * [ ] Add pagination
 * [ ] Add search
 

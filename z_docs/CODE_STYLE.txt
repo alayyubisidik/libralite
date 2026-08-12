@@ -1,0 +1,155 @@
+<?php
+
+namespace App\Http\Controllers\Dashboard;
+
+use App\Http\Controllers\Controller;
+use App\Models\Brand;
+use App\Services\AlertService;
+use Illuminate\Http\Request;
+
+class BrandController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
+
+    public function index(Request $request)
+    {
+        $search = $request->string('search');
+        $status = $request->string('status');
+
+        $brands = Brand::with('media')
+            ->withCount('products')
+            ->when(
+                $search,
+                fn($query) => $query->where('name', 'like', "%{$search}%")
+            )
+            ->when(
+                $status->isNotEmpty(),
+                fn($query) => $query->where('is_active', $status)
+            )
+            ->latest()
+            ->paginate(10)
+            ->withQueryString();
+
+        return view('dashboard.brand.index', compact(
+            'brands',
+            'search',
+            'status',
+        ));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        return view('dashboard.brand.create');
+    }
+
+    /**
+     * Store a newly created resource.
+     */
+    public function store(Request $request)
+    {
+        $validated = $request->validate(
+            [
+                'name' => ['required', 'string', 'max:255', 'unique:brands,name'],
+                'is_active' => ['required', 'boolean'],
+
+                'logo' => ['nullable', 'mimes:png,jpg,jpeg,svg,webp', 'max:2048'],
+            ],
+            [
+                'name.required' => 'Nama brand wajib diisi.',
+                'name.string' => 'Nama brand harus berupa teks.',
+                'name.max' => 'Nama brand maksimal 255 karakter.',
+                'name.unique' => 'Nama brand sudah digunakan.',
+
+                'is_active.required' => 'Status wajib dipilih.',
+                'is_active.boolean' => 'Status tidak valid.',
+
+                'logo.mimes' => 'Logo harus berformat PNG, JPG, JPEG, SVG, atau WEBP.',
+                'logo.max' => 'Ukuran logo maksimal 2 MB.',
+            ]
+        );
+
+        $brand = Brand::create($validated);
+
+        if ($request->hasFile('logo')) {
+            $brand
+                ->addMediaFromRequest('logo')
+                ->toMediaCollection('logo');
+        }
+
+        AlertService::created('Brand created successfully');
+
+        return to_route('dashboard.brands.index');
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Brand $brand)
+    {
+        return view('dashboard.brand.edit', compact('brand'));
+    }
+
+    /**
+     * Update the specified resource.
+     */
+    public function update(Request $request, Brand $brand)
+    {
+        $validated = $request->validate(
+            [
+                'name' => ['required', 'string', 'max:255', 'unique:brands,name,' . $brand->id],
+                'is_active' => ['required', 'boolean'],
+
+                'logo' => ['nullable', 'mimes:png,jpg,jpeg,svg,webp', 'max:2048'],
+            ],
+            [
+                'name.required' => 'Nama brand wajib diisi.',
+                'name.string' => 'Nama brand harus berupa teks.',
+                'name.max' => 'Nama brand maksimal 255 karakter.',
+                'name.unique' => 'Nama brand sudah digunakan.',
+
+                'is_active.required' => 'Status wajib dipilih.',
+                'is_active.boolean' => 'Status tidak valid.',
+
+                'logo.mimes' => 'Logo harus berformat PNG, JPG, JPEG, SVG, atau WEBP.',
+                'logo.max' => 'Ukuran logo maksimal 2 MB.',
+            ]
+        );
+
+        $brand->update($validated);
+
+        if ($request->hasFile('logo')) {
+            $brand->clearMediaCollection('logo');
+
+            $brand
+                ->addMediaFromRequest('logo')
+                ->toMediaCollection('logo');
+        }
+
+        AlertService::updated('Brand updated successfully');
+
+        return to_route('dashboard.brands.index');
+    }
+
+    /**
+     * Remove the specified resource.
+     */
+    public function destroy(Brand $brand)
+    {
+        if ($brand->products()->exists()) {
+            AlertService::error('Brand tidak dapat dihapus karena masih digunakan oleh produk.');
+
+            return back();
+        }
+
+        $brand->delete();
+
+        AlertService::deleted('Brand deleted successfully');
+
+        return to_route('dashboard.brands.index');
+    }
+}
