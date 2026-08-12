@@ -1,17 +1,14 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layouts.app')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
-        </div>
+@section('title', 'Dashboard')
+
+@section('content')
+    <div class="rounded-lg bg-blue-600 px-6 py-8 sm:px-8 sm:py-10">
+        <p class="text-sm font-medium text-blue-200">Dashboard</p>
+        <h2 class="mt-2 text-2xl font-semibold text-white sm:text-3xl">Selamat datang, {{ Auth::user()->name }}!</h2>
+        <p class="mt-3 max-w-2xl text-sm text-blue-100">
+            Selamat datang di LibraLite, sistem manajemen perpustakaan Anda.
+            Pilih menu di samping untuk mulai mengelola data perpustakaan.
+        </p>
     </div>
-</x-app-layout>
+@endsection

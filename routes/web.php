@@ -1,14 +1,15 @@
 <?php
 
 use App\Http\Controllers\Auth\SetupAdminController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', fn () => redirect()->route('login'));
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware('auth')->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->middleware('auth')
+    ->name('dashboard');
 
 Route::middleware('guest')->group(function () {
     Route::get('setup-admin', [SetupAdminController::class, 'create'])->name('setup.admin.create');
