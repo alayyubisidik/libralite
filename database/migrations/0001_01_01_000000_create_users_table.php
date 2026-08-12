@@ -17,8 +17,18 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+
+            $table->string('member_code')->unique()->nullable()->comment('e.g. LIB-000001. Null for Admin accounts.');
+            $table->string('phone')->nullable();
+            $table->text('address')->nullable();
+            $table->date('date_of_birth')->nullable();
+            $table->enum('member_status', ['active', 'inactive'])->nullable()->comment('Null for Admin accounts.');
+            $table->date('joined_at')->nullable()->comment('Membership start date. Null for Admin accounts.');
+
             $table->rememberToken();
             $table->timestamps();
+
+            $table->index('member_status');
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

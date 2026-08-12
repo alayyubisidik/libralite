@@ -50,9 +50,9 @@
 
 ## 1.4 Basic Application Verification
 
-* [ ] Run migrations
+* [x] Run migrations
+* [x] Verify database connection
 * [ ] Verify Laravel application starts correctly
-* [ ] Verify database connection
 * [ ] Verify frontend assets compile
 * [ ] Verify authentication scaffolding is accessible
 
@@ -116,26 +116,26 @@ The application must provide a secure initial admin setup mechanism.
 
 ## 3.1 Database Design
 
-* [ ] Finalize database entities based on PRD
-* [ ] Define entity relationships
-* [ ] Define required indexes
-* [ ] Define foreign keys
-* [ ] Define unique constraints
-* [ ] Define required status fields
+* [x] Finalize database entities based on PRD
+* [x] Define entity relationships
+* [x] Define required indexes
+* [x] Define foreign keys
+* [x] Define unique constraints
+* [x] Define required status fields
 
 ## 3.2 Migrations
 
-* [ ] Create users migration adjustments if required
-* [ ] Create members migration
-* [ ] Create categories migration
-* [ ] Create books migration
-* [ ] Create attendances migration
-* [ ] Create borrowings migration
-* [ ] Create fines migration
-* [ ] Create payments migration
-* [ ] Create required notification/activity tables
-* [ ] Verify all relationships
-* [ ] Run fresh migration successfully
+* [x] Create users migration adjustments if required
+* [x] Create members migration (merged into `users` per db.sql v2)
+* [x] Create categories migration
+* [x] Create books migration
+* [x] Create attendances migration
+* [x] Create borrowings migration
+* [x] Create fines migration
+* [x] Create payments migration
+* [x] Create required notification/activity tables
+* [x] Verify all relationships
+* [x] Run fresh migration successfully
 
 ## 3.3 Models & Relationships
 
