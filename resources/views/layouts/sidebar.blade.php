@@ -30,7 +30,21 @@
     </nav>
 
     <!-- Sidebar Footer -->
-    <div class="shrink-0 border-t border-gray-200 px-6 py-4">
-        <p class="text-xs text-gray-400">{{ config('app.name', 'LibraLite') }} v1.0</p>
+    <div class="shrink-0 space-y-3 border-t border-gray-200 px-3 py-4">
+        <p class="px-3 text-xs text-gray-400">{{ config('app.name', 'LibraLite') }} v1.0</p>
+
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button type="submit"
+                class="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-600 transition hover:bg-red-50 hover:text-red-600"
+            >
+                <svg class="h-5 w-5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                    <polyline points="16 17 21 12 16 7" />
+                    <line x1="21" x2="9" y1="12" y2="12" />
+                </svg>
+                Keluar
+            </button>
+        </form>
     </div>
 </aside>
